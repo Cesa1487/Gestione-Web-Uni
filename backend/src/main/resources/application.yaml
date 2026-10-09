@@ -17,3 +17,16 @@ spring:
     url: ${FLYWAY_URL:${spring.datasource.url}}
     user: ${DB_USER:gestionewebuni}
     password: ${DB_PASSWORD:gestionewebuni}
+
+server:
+  port: ${PORT:8080}
+  shutdown: graceful
+
+app:
+  version: ${RENDER_GIT_COMMIT:dev}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
