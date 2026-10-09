@@ -1,3 +1,19 @@
 spring:
   application:
     name: backend
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/gestionewebuni}
+    username: ${DB_USER:gestionewebuni}
+    password: ${DB_PASSWORD:gestionewebuni}
+    hikari:
+      maximum-pool-size: ${DB_POOL_SIZE:5}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  flyway:
+    url: ${FLYWAY_URL:${spring.datasource.url}}
+    user: ${DB_USER:gestionewebuni}
+    password: ${DB_PASSWORD:gestionewebuni}
